@@ -23,7 +23,9 @@ namespace FreeAdCopyAutomation.Tests
         [SetUp]
         public void Setup()
         {
-            _driver = new ChromeDriver();
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl("https://freeadcopy.com/"); 
             _loginPage = new LoginMethods(_driver);

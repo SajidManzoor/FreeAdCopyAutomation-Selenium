@@ -17,4 +17,8 @@
 	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\selenium-tests.yml" />
+  </ItemGroup>
+
 </Project>
