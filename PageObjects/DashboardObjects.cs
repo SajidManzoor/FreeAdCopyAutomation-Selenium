@@ -26,7 +26,7 @@ namespace FreeAdCopyAutomation.PageObjects
         public IWebElement EditIcon => _driver.FindElement(By.CssSelector("[src='/icons/dashboard/adsResult/light/edit.svg']"));
         public IWebElement SaveBtn => _driver.FindElement(By.CssSelector(".flex > .border:nth-child(3)"));
         public IWebElement ProfileIcon => _driver.FindElement(By.CssSelector(".flex > .flex > .w-11"));
-        public IWebElement SettingsTab => _driver.FindElement(By.CssSelector(".space-y-3 > li:nth-child(2)"));
+        public IWebElement SettingsTab => _driver.FindElement(By.CssSelector("ul > :nth-child(2)"));
         public IWebElement ReportBugTab => _driver.FindElement(By.CssSelector("ul > :nth-child(4)"));
         public IWebElement SignoutTab => _driver.FindElement(By.CssSelector(".space-y-3 > li:nth-child(5)"));
         public IWebElement ReportBug => _driver.FindElement(By.Id("message"));
@@ -37,14 +37,16 @@ namespace FreeAdCopyAutomation.PageObjects
         public IWebElement SearchBar => _driver.FindElement(By.CssSelector(".ml-5 > .relative > .bg-gray-50"));
         public IWebElement SearchField => _driver.FindElement(By.Id("simple-search"));
         public IWebElement PurchasesTab => _driver.FindElement(By.CssSelector(".space-y-4 > .flex-1 > a:nth-child(9)"));
-        public IWebElement EmailCategory => _driver.FindElement(By.XPath("//div[@class='grid']/div[@class='mt-4'][1]")).FindElement(By.XPath(".//span[text()='Email Copy']")); // More robust XPath
+        //public IWebElement EmailCategory => _driver.FindElement(By.XPath("//div[@class='grid']/div[@class='mt-4'][1]")).FindElement(By.XPath(".//span[text()='Email Copy']")); // More robust XPath   
+        public IWebElement EmailCategory => _driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(1)"));
         public IWebElement EmailSequence => _driver.FindElement(By.CssSelector(":nth-child(4) > :nth-child(1) > .rotating-card-container"));
         public IWebElement EmailTemplate => _driver.FindElement(By.CssSelector(":nth-child(1) > .rotating-card-container"));
         public IWebElement TemplateElement => _driver.FindElement(By.CssSelector("#template > .grid > .block > .rotating-card-container > .p-5 > .px-4 > .text-xl"));
         public IWebElement YoutubeCategory => _driver.FindElement(By.XPath("//div[@class='grid'][contains(.,'YouTube Ads')]")); //XPath for better handling
         public IWebElement BredcrumbYoutube => _driver.FindElement(By.XPath("//div[@class='text-md'][contains(.,'youtube ads')]"));
         public IWebElement YoutubeTemplate => _driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(1)"));
-        public IWebElement MarketResCategory => _driver.FindElement(By.XPath("//div[@class='pb-7']/div[4]/div[@class='back'][contains(.,'Market Research')]"));
+        //public IWebElement MarketResCategory => _driver.FindElement(By.XPath("//div[@class='pb-7']/div[4]/div[@class='back'][contains(.,'Market Research')]"));
+        public IWebElement MarketResCategory => _driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(4)"));
         public IWebElement BredcrumbMarketRes => _driver.FindElement(By.XPath("//div[@class='text-md'][contains(.,'market research')]"));
         public IWebElement MarketTemplate => _driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(1)"));
         public IWebElement MiscCategory => _driver.FindElement(By.XPath("//div[@class='pb-7']/div[5]/div[@class='back'][contains(.,'Misc')]"));

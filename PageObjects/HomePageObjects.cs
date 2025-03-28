@@ -32,7 +32,8 @@ namespace FreeAdCopyAutomation.PageObjects
         //public IWebElement TemplateOption => _driver.FindElement(By.CssSelector(".flex-1 > a:nth-child(3)")); // Assuming this is the selector for the template option in the sidebar
         public IWebElement TemplateOption => _driver.FindElement(By.CssSelector(".space-y-4 > .flex-1 > a:nth-child(3)"));
         //public IWebElement EmailTemplateOption => _driver.FindElement(By.CssSelector("a[href='/templates/email']")); // You need to find the correct selector
-        public IWebElement EmailTemplateOption=>_driver.FindElement(By.CssSelector(":nth-child(1) > .rotating-card-container"));
+        //public IWebElement EmailTemplateOption=>_driver.FindElement(By.CssSelector(":nth-child(1) > .rotating-card-container"));
+        public IWebElement EmailTemplateOption =>_driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(1)"));
         public IWebElement GenerateAdButton => _driver.FindElement(By.Id("generate_ad_button_id")); // You need to find the correct id
         public IWebElement MyAdsOption => _driver.FindElement(By.CssSelector("a[href='/my-ads']")); // You need to find the correct selector
     }

@@ -8,6 +8,7 @@ using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
 using SeleniumExtras.WaitHelpers;
 using FreeAdCopyAutomation.PageObjects;
+using OpenQA.Selenium.Interactions;
 
 namespace FreeAdCopyAutomation.PageMethods
 {
@@ -114,7 +115,6 @@ namespace FreeAdCopyAutomation.PageMethods
                 { "uk", "Копірайтер на $1 мільярд створює БЕЗКОШТОВНИЙ генератор тексту AI, який перевершить ваш" }
             };
             _wait.Until(ExpectedConditions.ElementIsVisible(By.TagName("h1")));
-            //Assert.AreEqual(h1[language], _driver.FindElement(By.TagName("h1")).Text);
             Assert.That(h1[language], Is.EqualTo(_driver.FindElement(By.TagName("h1")).Text));
         }
 
@@ -122,25 +122,29 @@ namespace FreeAdCopyAutomation.PageMethods
         {
             _wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".flex-1 > a:nth-child(3)")));
             _elements.TemplateOption.Click();
+            // wait for url change
+            _wait.Until(ExpectedConditions.UrlContains("/templates"));
         }
 
         public void SelectEmailTemplate()
         {
             _wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(":nth-child(1) > .rotating-card-container")));
             Assert.That(_driver.FindElement(By.CssSelector(":nth-child(1) > .rotating-card-container")).Displayed, Is.True);
-            //_elements.EmailTemplateOption.Click();
-            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-            js.ExecuteScript("arguments[0].click();", _elements.EmailTemplateOption);
+
+            //IWebElement clickable = driver.FindElement(By.Id("clickable"));
+            //new Actions(_driver)
+            //    .DoubleClick(_elements.EmailTemplateOption)
+            //    .Perform();
+            _elements.EmailTemplateOption.Click();
+            
+            //IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            //js.ExecuteScript("arguments[0].click();", _elements.EmailTemplateOption);
 
         }
 
         public void FillTheFields()
         {
-            // You need to add the correct logic to fill the fields
-            // Example:
-            EnterTarget("Test Target");
-            EnterProblem("Test Problem");
-            // Add more fields as needed
+            
         }
 
         public void ClickGenerateAdButton()

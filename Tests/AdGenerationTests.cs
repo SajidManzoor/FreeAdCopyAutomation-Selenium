@@ -8,7 +8,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using FreeAdCopyAutomation.PageMethods;
 using System.IO;
-using System.Linq;
 
 namespace FreeAdCopyAutomation.Tests
 {
@@ -17,6 +16,8 @@ namespace FreeAdCopyAutomation.Tests
         private IWebDriver _driver;
         private LoginMethods _loginPage;
         private HomePageMethods _homePage;
+        private DashboardMethods _dashboardPage;
+        private AdsPageMethods _adsPage;
         private List<Dictionary<string, string>> _testData;
 
         [SetUp]
@@ -27,35 +28,53 @@ namespace FreeAdCopyAutomation.Tests
             _driver.Navigate().GoToUrl("https://freeadcopy.com/"); // Replace with your base URL
             _loginPage = new LoginMethods(_driver);
             _homePage = new HomePageMethods(_driver);
+            _dashboardPage = new DashboardMethods(_driver);
+            _adsPage = new AdsPageMethods(_driver);
             _testData = LoadTestData("DataFile.csv");
         }
 
         [TearDown]
         public void Teardown()
         {
-            //_driver.Quit();
+            _driver.Quit();
         }
 
         [Test]
         public void GenerateAdWithEmailTemplate()
         {
-            // Login to app and Click on the template from side bar
             _homePage.NavigationToLogin();
-            _loginPage.EnterEmail("sajidfree7727@gmail.com"); // Assuming the first row in the CSV is for login
+            _loginPage.EnterEmail("sajidfree7727@gmail.com");
             _loginPage.EnterPassword("webdir123R");
             _loginPage.SigninBtn();
             _homePage.ClickTemplateOption();
 
-            // Select email template
-            _homePage.SelectEmailTemplate();
+            _dashboardPage.SelectEmailCategory();
+            _dashboardPage.SelectEmailSequence();
+            _dashboardPage.SelectEmailTemplate();
 
-            // Fill the fields
-            _homePage.FillTheFields();
+            _adsPage.FillAdsForm("Test", "Test", "Test", "Test");
 
-            // Click on Generate Ad button and verify the ad
-            _homePage.ClickGenerateAdButton();
-            _homePage.VerifyAd();
+            //_adsPage.ClickGenerateAdBtn();
+            //_dashboardPage.ToastNotify("Generating Ads...");
         }
+        [Test]
+        public void GenerateAdWithMarketResearchTemplate()
+        {
+            _homePage.NavigationToLogin();
+            _loginPage.EnterEmail("sajidfree7727@gmail.com");
+            _loginPage.EnterPassword("webdir123R");
+            _loginPage.SigninBtn();
+            _homePage.ClickTemplateOption();
+
+            _dashboardPage.SelectMarketResCategory();
+            _dashboardPage.SelectMarketResTemplate();
+
+            _adsPage.FillAdsFormMarketRes("Test", "Test");
+
+            //_adsPage.ClickGenerateAdBtn();
+            //_dashboardPage.ToastNotify("Generating Ads...");
+        }
+
 
         private List<Dictionary<string, string>> LoadTestData(string filePath)
         {

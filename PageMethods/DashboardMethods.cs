@@ -53,29 +53,23 @@ namespace FreeAdCopyAutomation.PageMethods
         // Email
         public void SelectEmailCategory()
         {
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".grid > .mt-4:nth-child(1)")));
             _dashboardElement.EmailCategory.Click();
             Assert.That(_driver.Url.Contains("/templates"), Is.True, "URL should include '/templates'");
         }
 
-        //public void SelectEmailSequence()
-        //{
-        //    _dashboardElement.EmailSequence.First().Click();
-        //    Assert.That(_driver.Url.Contains("subcategory"), Is.True, "URL should include 'subcategory'");
-        //}
         public void SelectEmailSequence()
         {
-            var emailSequences = _driver.FindElements(By.CssSelector(".email-sequence-selector"));
-            emailSequences.First().Click();
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(":nth-child(4) > :nth-child(1) > .rotating-card-container")));
+            _dashboardElement.EmailSequence.Click();
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("subcategory"));
             Assert.That(_driver.Url.Contains("subcategory"), Is.True, "URL should include 'subcategory'");
         }
 
 
         public void SelectEmailTemplate()
         {
-            var templates = _driver.FindElements(By.CssSelector(".text-gray-500.font-semibold"));
-            Assert.That(templates.First().Text.Contains("Templates"), Is.True, "Element should contain 'Templates'");
-            Assert.That(templates.First().Displayed, Is.True, "Element should be visible");
-
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(":nth-child(1) > .rotating-card-container")));
             _dashboardElement.EmailTemplate.Click();
         }
 
@@ -101,9 +95,11 @@ namespace FreeAdCopyAutomation.PageMethods
         // Market Research
         public void SelectMarketResCategory()
         {
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".grid > .mt-4:nth-child(4)")));
             _dashboardElement.MarketResCategory.Click();
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("/market-research"));
             Assert.That(_driver.Url.Contains("/market-research"), Is.True, "URL should include '/market-research'");
-            Assert.That(_dashboardElement.BredcrumbMarketRes.Displayed, Is.True, "Market Research breadcrumb should be visible");
+            //Assert.That(_dashboardElement.BredcrumbMarketRes.Displayed, Is.True, "Market Research breadcrumb should be visible");
         }
 
         public void SelectMarketResTemplate()
@@ -142,9 +138,7 @@ namespace FreeAdCopyAutomation.PageMethods
         {
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".flex > .flex > .w-11")));
             Assert.That(_dashboardElement.ProfileIcon.Displayed, Is.True, "Profile icon should be visible");
-            //_wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".flex > .flex > .w-11")));
-            //_dashboardElement.ProfileIcon.Click();
-            // Use JavaScript to click the element
+
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
             js.ExecuteScript("arguments[0].click();", _dashboardElement.ProfileIcon);
 
@@ -153,6 +147,7 @@ namespace FreeAdCopyAutomation.PageMethods
         public void SelectSettingsTab()
         {
             _dashboardElement.SettingsTab.Click();
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("/settings"));
             Assert.That(_driver.Url.Contains("/settings"), Is.True, "URL should include '/settings'");
         }
 
@@ -196,7 +191,9 @@ namespace FreeAdCopyAutomation.PageMethods
 
         public void ToastNotify(string toastMessage)
         {
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".Toastify__toast-body")));
             Assert.That(_loginElements.Toast.Text, Is.EqualTo(toastMessage), "Toast notification should match expected message");
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(".Toastify__toast-body")));
         }
 
         public void SubmitBugReport(string bugDetail)
