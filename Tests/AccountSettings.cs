@@ -27,7 +27,7 @@ namespace FreeAdCopyAutomation.Tests
             options.AddArgument("--headless");
             _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("https://freeadcopy.com/"); 
+            _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _loginPage = new LoginMethods(_driver);
             _homePage = new HomePageMethods(_driver);
             _dashboardPage=new DashboardMethods(_driver);
@@ -46,8 +46,8 @@ namespace FreeAdCopyAutomation.Tests
         {
             // Login to app and Click on the template from side bar
             _homePage.NavigationToLogin();
-            _loginPage.EnterEmail("sajidfree7727@gmail.com");
-            _loginPage.EnterPassword("webdir123R");
+            _loginPage.EnterEmail(Environment.ValidEmail);
+            _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
             _dashboardPage.ClickProfileIcon();
             _dashboardPage.SelectSettingsTab();
@@ -58,16 +58,15 @@ namespace FreeAdCopyAutomation.Tests
         public void ChangePassword()
         {
             _homePage.NavigationToLogin();
-            _loginPage.EnterEmail("sajidfree7727@gmail.com");
-            _loginPage.EnterPassword("webdir123R");
+            _loginPage.EnterEmail(Environment.ValidEmail);
+            _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
-            _dashboardPage.ToastNotify("Login successfully");
+            _dashboardPage.ToastNotify(Environment.LoginSuccessToastMessage);
             _dashboardPage.ClickProfileIcon();
             _dashboardPage.SelectSettingsTab();
-            //_settingsPage.PasswordSettingTab();
-            _settingsPage.UpdatePassword("webdir123R", "asdfghj","qwrtyuz");
+            _settingsPage.UpdatePassword(Environment.ValidPassword,Environment.NewPassword,Environment.ConfirmNewPassword);
             _settingsPage.ClickUpdatePasswordButton();
-            _dashboardPage.ToastNotify("Password doesn't match");
+            _dashboardPage.ToastNotify(Environment.PasswordMismatchToastMessage);
         }
     }
 }

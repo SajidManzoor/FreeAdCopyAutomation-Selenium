@@ -19,7 +19,7 @@ namespace FreeAdCopyAutomation.Tests
             options.AddArgument("--headless");
             _driver = new ChromeDriver(options); 
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("https://freeadcopy.com/"); 
+            _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _loginPage = new LoginMethods(_driver);
         }
 
@@ -33,10 +33,13 @@ namespace FreeAdCopyAutomation.Tests
         public void ValidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
-            _loginPage.EnterEmail("sajidfree7727@gmail.com"); 
-            _loginPage.EnterPassword("webdir123R"); 
+            //_loginPage.EnterEmail("sajidfree7727@gmail.com");
+            _loginPage.EnterEmail(Environment.ValidEmail);
+            //_loginPage.EnterPassword("webdir123R");
+            _loginPage.EnterPassword(Environment.ValidPassword); 
             _loginPage.SigninBtn();
-            _loginPage.ToastNotification("Login successfully");
+            //_loginPage.ToastNotification("Login successfully");
+            _loginPage.ToastNotification(Environment.LoginSuccessToastMessage);
             _loginPage.LoginValidation();
             _loginPage.VerifyLoginToast();
         }
@@ -45,10 +48,10 @@ namespace FreeAdCopyAutomation.Tests
         public void InvalidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
-            _loginPage.EnterEmail("sajid@gmail.com"); 
-            _loginPage.EnterPassword("webdir123R"); 
+            _loginPage.EnterEmail(Environment.InValidEmail); 
+            _loginPage.EnterPassword(Environment.ValidPassword); 
             _loginPage.SigninBtn();
-            _loginPage.ToastNotification("Firebase: Error (auth/user-not-found).");   
+            _loginPage.ToastNotification(Environment.AuthenticationErrorMessage);
         }
     }
 }

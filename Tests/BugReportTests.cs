@@ -29,7 +29,7 @@ namespace FreeAdCopyAutomation.Tests
             options.AddArgument("--headless");
             _driver = new ChromeDriver(options); 
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl("https://freeadcopy.com/"); 
+            _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _homePage = new HomePageMethods(_driver);
             _loginPage = new LoginMethods(_driver);
             _dashboard = new DashBoardObjects(_driver);
@@ -47,18 +47,15 @@ namespace FreeAdCopyAutomation.Tests
         public void SubmitBugReportTest()
         {
             _homePage.NavigationToLogin();
-            _loginPage.EnterEmail("sajidfree7727@gmail.com");
-            _loginPage.EnterPassword("webdir123R");
+            _loginPage.EnterEmail(Environment.ValidEmail);
+            _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
 
             _dashboardMethods.ClickProfileIcon();
             _dashboardMethods.SelectReportBugTab();
 
-            string bugDetail = "This is test bug";
-            _dashboardMethods.SubmitBugReport(bugDetail);
+            _dashboardMethods.SubmitBugReport(Environment.BugDetail);
 
-            //string successMessage = "Feedback Sent"; // Assuming your CSV has this column
-            //_loginPage.ToastNotification(successMessage); // Assuming LoginPageMethods has this method
         }
 
     }
