@@ -1,7 +1,7 @@
 name: Allure Report
 
 env:
-    SOLUTION_FILE: Allure.Examples.NUnit3.sln
+    SOLUTION_FILE: FreeAdCopyAutomation.sln
     BUILD_CONFIGURATION: Debug
 
 on:
