@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@main
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@main
         with:
           dotnet-version: '8.0'  # Change this to match your .NET version
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Install Allure CLI
         run: |
-          curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/latest/download/allure-2.25.0.zip
+          curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/latest/download/allure-2.33.0.zip
           unzip allure.zip -d allure
           echo "${{ github.workspace }}/allure/bin" >> $GITHUB_PATH
 
@@ -52,7 +52,7 @@ jobs:
           allure report open -h 127.0.0.1 -p 8080
 
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@main
         with:
           name: allure-report
           path: allure-report
