@@ -38,6 +38,8 @@ jobs:
       #     path: TestResults
 
 
+      # - name: Run tests with Allure
+      #   run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
       - name: Run tests with Allure
         run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
 
