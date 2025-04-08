@@ -1,3 +1,66 @@
+# name: Run Selenium C# Tests
+
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   selenium-tests:
+#     runs-on: windows-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@main
+
+#       - name: Setup .NET
+#         uses: actions/setup-dotnet@main
+#         with:
+#           dotnet-version: '8.0'  # Change this to match your .NET version
+
+#       - name: Restore Dependencies
+#         run: dotnet restore
+
+#       - name: Build the Project
+#         run: dotnet build --configuration Release --no-restore
+
+#       # - name: Run Selenium Tests
+#       #   run: dotnet test --configuration Release --no-build --logger trx
+
+#       # - name: Upload Test Results
+#       #   uses: actions/upload-artifact@v4
+#       #   with:
+#       #     name: TestResults
+#       #     path: TestResults
+
+
+#       # - name: Run tests with Allure
+#       #   run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
+#       - name: Run tests with Allure
+#         run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
+
+#       - name: Install Allure CLI
+#         run: |
+#           curl -o allure.zip -L https://github.com/allure-framework/allure2/releases/latest/download/allure-2.33.0.zip
+#           unzip allure.zip -d allure
+#           echo "${{ github.workspace }}/allure/bin" >> $GITHUB_PATH
+
+#       - name: Generate Allure Report
+#         run: |
+#           allure generate allure-results --clean -o allure-report
+#           allure report open -h 127.0.0.1 -p 8080
+
+#       - name: Upload Allure Report as Artifact
+#         uses: actions/upload-artifact@main
+#         with:
+#           name: allure-report
+#           path: allure-report
+
+
 name: Run Selenium C# Tests
 
 on:
@@ -28,20 +91,8 @@ jobs:
       - name: Build the Project
         run: dotnet build --configuration Release --no-restore
 
-      # - name: Run Selenium Tests
-      #   run: dotnet test --configuration Release --no-build --logger trx
-
-      # - name: Upload Test Results
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: TestResults
-      #     path: TestResults
-
-
-      # - name: Run tests with Allure
-      #   run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
       - name: Run tests with Allure
-        run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results")
+        run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results") -- TestRunParameters.Parameter(name="another.parameter", value="parameter-value")
 
       - name: Install Allure CLI
         run: |
