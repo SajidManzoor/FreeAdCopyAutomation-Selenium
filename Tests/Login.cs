@@ -33,12 +33,9 @@ namespace FreeAdCopyAutomation.Tests
         public void ValidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
-            //_loginPage.EnterEmail("sajidfree7727@gmail.com");
             _loginPage.EnterEmail(Environment.ValidEmail);
-            //_loginPage.EnterPassword("webdir123R");
             _loginPage.EnterPassword(Environment.ValidPassword); 
             _loginPage.SigninBtn();
-            //_loginPage.ToastNotification("Login successfully");
             _loginPage.ToastNotification(Environment.LoginSuccessToastMessage);
             _loginPage.LoginValidation();
             _loginPage.VerifyLoginToast();

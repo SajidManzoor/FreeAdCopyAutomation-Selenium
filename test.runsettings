@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <TestRunParameters>
+      <Parameter name="allure.results.directory" value="allure-results" />
+      <Parameter name="another.parameter" value="parameter-value" />
+    </TestRunParameters>
+  </RunConfiguration>
+</RunSettings>

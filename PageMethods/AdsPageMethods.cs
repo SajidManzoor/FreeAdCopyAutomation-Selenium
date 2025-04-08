@@ -1,7 +1,7 @@
 ﻿using FreeAdCopyAutomation.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI; //For SelectElement
+using OpenQA.Selenium.Support.UI; 
 using SeleniumExtras.WaitHelpers;
 
 public class AdsPageMethods
@@ -15,17 +15,21 @@ public class AdsPageMethods
     {
         _driver = driver;
         this.adsElements = new AdsPageObjects(driver);
-        this.loginElements = new LoginObjects(driver); // Initialize LoginPageElements
+        this.loginElements = new LoginObjects(driver); 
         _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
     }
 
     public void FillAdsForm(string targetMarket, string painPoint, string dislikeSol, string uniqueSol)
     {
-        _wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".relative > #target"))); // Wait for the element to be visible
+        _wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".relative > #target")));
         adsElements.TargetMarketField.SendKeys(targetMarket);
         adsElements.PainPointField.SendKeys(painPoint);
         adsElements.DislikeSolField.SendKeys(dislikeSol);
         adsElements.UniqueSolField.SendKeys(uniqueSol);
+    }
+    public void EnterData(string data)
+    {
+        adsElements.TargetMarketField.SendKeys(data);
     }
 
     public void FillAdsFormMarketRes(string targetMarket, string uniqueSol)
@@ -37,10 +41,6 @@ public class AdsPageMethods
         //adsElements.SelectLanguage("en");
     }
 
-    public void EnterData(string data)
-    {
-        adsElements.TargetMarketField.SendKeys(data);
-    }
 
     public void ClickGenerateAdBtn()
     {

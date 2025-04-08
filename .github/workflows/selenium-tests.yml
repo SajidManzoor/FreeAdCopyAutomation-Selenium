@@ -92,7 +92,8 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Run tests with Allure
-        run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results") -- TestRunParameters.Parameter(name="another.parameter", value="parameter-value")
+        # run: dotnet test --no-build --logger:"console;verbosity=normal" -- TestRunParameters.Parameter(name="allure.results.directory", value="allure-results") -- TestRunParameters.Parameter(name="another.parameter", value="parameter-value")
+        run: dotnet test --no-build --logger:"console;verbosity=normal" --settings test.runsettings
 
       - name: Install Allure CLI
         run: |
