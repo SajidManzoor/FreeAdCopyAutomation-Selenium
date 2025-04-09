@@ -60,7 +60,7 @@ jobs:
                 webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
                 webhook-type: incoming-webhook
                 payload: |
-                  text: "*GitHub Action build result*: ${{ job.status }}\n${{  github.event.head_commit.url }}"
+                  text: "*GitHub Action build result*: ${{ job.status }}\n${{  github.event.head_commit.url }}\nSee Detailed Report at: https://sajidmanzoor.github.io/FreeAdCopyAutomation-Selenium"
                   # blocks:
                   #   - type: "section"
                   #     text:
