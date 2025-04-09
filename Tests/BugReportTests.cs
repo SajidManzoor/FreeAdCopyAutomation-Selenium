@@ -9,9 +9,11 @@ using OpenQA.Selenium.Chrome;
 using System.IO; // For reading test data
 using FreeAdCopyAutomation.PageMethods;
 using FreeAdCopyAutomation.PageObjects;
+using Allure.NUnit;
 
 namespace FreeAdCopyAutomation.Tests
 {
+    [AllureNUnit]
     [TestFixture]
     public class BugReportTests
     {

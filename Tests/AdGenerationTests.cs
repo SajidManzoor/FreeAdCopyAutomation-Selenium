@@ -8,9 +8,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using FreeAdCopyAutomation.PageMethods;
 using System.IO;
+using Allure.NUnit;
 
 namespace FreeAdCopyAutomation.Tests
 {
+    [AllureNUnit]
     class AdGenerationTests
     {
         private IWebDriver _driver;

@@ -3,9 +3,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using FreeAdCopyAutomation.PageMethods;
 using FreeAdCopyAutomation.PageObjects;
+using Allure.NUnit;
 
 namespace FreeAdCopyAutomation.Tests
 {
+    [AllureNUnit]
     [TestFixture]
     public class Login
     {
