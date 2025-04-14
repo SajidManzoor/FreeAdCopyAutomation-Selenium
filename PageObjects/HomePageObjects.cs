@@ -16,25 +16,22 @@ namespace FreeAdCopyAutomation.PageObjects
             _driver = driver;
         }
 
-        public IWebElement LoginNavbar => _driver.FindElement(By.CssSelector(".-top-50 > .text-\\[16px\\]")); // Assuming this is the selector for the login link
-        public IWebElement SignupButton => _driver.FindElement(By.CssSelector("a[href='/signup']")); // Assuming this is the selector for the signup button
-        public IWebElement GetStartedNav => _driver.FindElement(By.CssSelector("a[href='/templates']")); // Assuming this is the selector for the get started link
-        public IWebElement GetStartedButton => _driver.FindElement(By.CssSelector("a[href='/templates']")); // Assuming this is the selector for the get started button
-        public IWebElement TargetInput => _driver.FindElement(By.Id("target_input_id")); // You need to find the correct id
-        public IWebElement ProblemInput => _driver.FindElement(By.Id("problem_input_id")); // You need to find the correct id
-        public IWebElement DislikeInput => _driver.FindElement(By.Id("dislike_input_id")); // You need to find the correct id
-        public IWebElement UniqueSolutionInput => _driver.FindElement(By.Id("unique_solution_input_id")); // You need to find the correct id
-        public IWebElement HowUniqueWorkInput => _driver.FindElement(By.Id("how_unique_work_input_id")); // You need to find the correct id
-        public IWebElement ResearchInput => _driver.FindElement(By.Id("research_input_id")); // You need to find the correct id
-        public IWebElement TestimonialsInput => _driver.FindElement(By.Id("testimonials_input_id")); // You need to find the correct id
-        public IWebElement RoleDropdown => _driver.FindElement(By.Id("role_dropdown_id")); // You need to find the correct id
-        public IWebElement GetAdButton => _driver.FindElement(By.Id("get_ad_button_id")); // You need to find the correct id
-        //public IWebElement TemplateOption => _driver.FindElement(By.CssSelector(".flex-1 > a:nth-child(3)")); // Assuming this is the selector for the template option in the sidebar
-        public IWebElement TemplateOption => _driver.FindElement(By.CssSelector(".space-y-4 > .flex-1 > a:nth-child(3)"));
-        //public IWebElement EmailTemplateOption => _driver.FindElement(By.CssSelector("a[href='/templates/email']")); // You need to find the correct selector
-        //public IWebElement EmailTemplateOption=>_driver.FindElement(By.CssSelector(":nth-child(1) > .rotating-card-container"));
-        public IWebElement EmailTemplateOption =>_driver.FindElement(By.CssSelector(".grid > .mt-4:nth-child(1)"));
-        public IWebElement GenerateAdButton => _driver.FindElement(By.Id("generate_ad_button_id")); // You need to find the correct id
-        public IWebElement MyAdsOption => _driver.FindElement(By.CssSelector("a[href='/my-ads']")); // You need to find the correct selector
+        public By LoginNavbar =>By.CssSelector(".-top-50 > .text-\\[16px\\]");
+        public By SignupButton =>By.CssSelector("a[href='/signup']");
+        public By GetStartedNav =>By.CssSelector("a[href='/templates']");
+        public By GetStartedButton =>By.CssSelector("a[href='/templates']");
+        public By TargetInput =>By.Id("target_input_id");
+        public By ProblemInput =>By.Id("problem_input_id");
+        public By DislikeInput =>By.Id("dislike_input_id");
+        public By UniqueSolutionInput =>By.Id("unique_solution_input_id");
+        public By HowUniqueWorkInput =>By.Id("how_unique_work_input_id");
+        public By ResearchInput =>By.Id("research_input_id");
+        public By TestimonialsInput =>By.Id("testimonials_input_id");
+        public By RoleDropdown =>By.Id("role_dropdown_id");
+        public By GetAdButton =>By.Id("get_ad_button_id");
+        public By TemplateOption =>By.CssSelector(".space-y-4 > .flex-1 > a:nth-child(3)");
+        public By EmailTemplateOption =>By.CssSelector(".grid > .mt-4:nth-child(1)");
+        public By GenerateAdButton =>By.Id("generate_ad_button_id");
+        public By MyAdsOption =>By.CssSelector("a[href='/my-ads']");
     }
 }

@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome; 
-using System.IO; // For reading test data
+using OpenQA.Selenium.Chrome;
+using System.IO;
 using FreeAdCopyAutomation.PageMethods;
 using FreeAdCopyAutomation.PageObjects;
 using Allure.NUnit;
@@ -22,21 +22,19 @@ namespace FreeAdCopyAutomation.Tests
         private LoginMethods _loginPage;
         private DashBoardObjects _dashboard;
         private DashboardMethods _dashboardMethods;
-        private List<Dictionary<string, string>> _testData;
 
         [SetUp]
         public void Setup()
         {
             var options = new ChromeOptions();
             options.AddArgument("--headless");
-            _driver = new ChromeDriver(options); 
+            _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _homePage = new HomePageMethods(_driver);
             _loginPage = new LoginMethods(_driver);
             _dashboard = new DashBoardObjects(_driver);
             _dashboardMethods = new DashboardMethods(_driver);
-            //_testData = LoadTestData("testData.csv"); // Adjust file path if needed
         }
 
         [TearDown]

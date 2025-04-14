@@ -4,16 +4,17 @@ using OpenQA.Selenium.Chrome;
 using FreeAdCopyAutomation.PageMethods;
 using FreeAdCopyAutomation.PageObjects;
 using Allure.NUnit;
+using Allure.NUnit.Attributes;
 
 namespace FreeAdCopyAutomation.Tests
 {
-    [AllureNUnit]
     [TestFixture]
+    [AllureNUnit]
     public class Login
     {
         private IWebDriver _driver;
         private LoginMethods _loginPage;
-
+        
         [SetUp]
         public void Setup()
         {
@@ -32,6 +33,10 @@ namespace FreeAdCopyAutomation.Tests
         }
 
         [Test]
+        [AllureDescription("Login")]
+        [AllureIssue("Issue-1")]
+        [AllureTms("TMS-1")]
+
         public void ValidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
@@ -44,6 +49,9 @@ namespace FreeAdCopyAutomation.Tests
         }
 
         [Test]
+        [AllureDescription("Invalid Login")]
+        [AllureIssue("Issue-2")]
+        [AllureTms("TMS-2")]
         public void InvalidLoginTest()
         {
             _loginPage.ClickLoginNavbar();

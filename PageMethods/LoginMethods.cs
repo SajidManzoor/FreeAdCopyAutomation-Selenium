@@ -16,80 +16,51 @@ namespace FreeAdCopyAutomation.PageMethods
         private readonly IWebDriver _driver;
         private readonly LoginObjects _elements;
         private readonly WebDriverWait _wait;
+        private readonly Utilities _utils;
 
         public LoginMethods(IWebDriver driver)
         {
             _driver = driver;
             _elements = new LoginObjects(driver);
-            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); // Adjust timeout as needed
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            _utils = new Utilities(driver);
         }
         public void ClickLoginNavbar()
         {
-            _elements.Login_Navbar.Click();
+            _utils.Click(_elements.Login_Navbar);
         }
 
         public void EnterEmail(string email)
         {
-            _elements.EmailField.SendKeys(email);
+            _utils.EnterText(_elements.EmailField, email);
         }
 
         public void EnterPassword(string password)
         {
-            _elements.PasswordField.SendKeys(password);
+            _utils.EnterText(_elements.PasswordField, password);
         }
 
         public void SigninBtn()
         {
-            _elements.SigninBtn.Click();
+            _utils.Click(_elements.SigninBtn);
         }
 
         public void LoginValidation()
         {
-            //_wait.Until(SeleniumExtras.ExpectedConditions.ElementIsVisible(By.CssSelector(".p-4 > .text-2xl")));
             _wait.Until(driver =>
             {
                 var element = driver.FindElement(By.CssSelector(".p-4 > .text-2xl"));
                 return element.Displayed ? element : null;
             });
 
-            Assert.That(_elements.WelcomeText.Displayed, Is.True);
+            Assert.That(_driver.FindElement(_elements.WelcomeText).Displayed, Is.True);
         }
 
         public void ToastNotification(string toastMessage)
         {
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".Toastify__toast-body > :nth-child(2)")));
-            //Assert.AreEqual(toastMessage, _elements.Toast.Text);
-            Assert.That(_elements.Toast.Text,Is.EqualTo(toastMessage));
-        }
-
-        public void LoginBtnValidation()
-        {
-            Assert.That(_elements.SigninBtn.Enabled,Is.False);
-        }
-
-        public void SelectTemplate()
-        {
-            _elements.TemplateOption.Click();
-        }
-
-        public void SelectField(string field)
-        {
-            // Assuming you have a field to type into, similar to the email/password fields
-            // You'll need to add the selector for this field in LoginPageElements.cs
-            // Example: _elements.TargetField.SendKeys(field);
-            // You need to add target_Field in LoginPageElements.cs
-            IWebElement targetField = _driver.FindElement(By.Id("target_field_id"));
-            targetField.SendKeys(field);
-        }
-
-        public void SelectButton()
-        {
-            // Assuming you have a button to click, similar to the sign-in button
-            // You'll need to add the selector for this button in LoginPageElements.cs
-            // Example: _elements.GenerateBtn.Click();
-            // You need to add generate_Btn in LoginPageElements.cs
-            IWebElement generateBtn = _driver.FindElement(By.Id("generate_btn_id"));
-            generateBtn.Click();
+            Assert.That(_driver.FindElement(_elements.Toast).Text, Is.EqualTo(toastMessage));
         }
 
         public void VerifyLoginToast(string language = "en")
@@ -108,33 +79,7 @@ namespace FreeAdCopyAutomation.PageMethods
                 { "uk", "Успішний вхід" }
             };
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".Toastify__toast-body > :nth-child(2)")));
-            Assert.That(_elements.Toast.Text, Is.EqualTo(toastMessages[language]));
-        }
-
-        public void ClickGoogleSignin()
-        {
-            // You need to add google_signin_btn in LoginPageElements.cs
-            IWebElement googleSigninBtn = _driver.FindElement(By.Id("google_signin_btn_id"));
-            googleSigninBtn.Click();
-        }
-
-        public void VerifyLoginFailure(string language = "en")
-        {
-            Dictionary<string, string> toastMessages = new Dictionary<string, string>()
-            {
-                { "en", "Login successfully" },
-                { "es", "Inicio de sesión exitoso" },
-                { "fr", "Connexion réussie" },
-                { "de", "Anmeldung erfolgreich" },
-                { "it", "Accesso riuscito" },
-                { "pt", "Login realizado com sucesso" },
-                { "idn", "Login berhasil" },
-                { "ru", "Connexion réussie" },
-                { "pol", "Pomyślnie zalogowano" },
-                { "uk", "Успішний вхід" }
-            };
-            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".Toastify__toast-body > :nth-child(2)")));
-            Assert.That(_elements.Toast.Text, Is.EqualTo(toastMessages[language]));
+            Assert.That(_driver.FindElement(_elements.Toast).Text, Is.EqualTo(toastMessages[language]));
         }
     }
 }

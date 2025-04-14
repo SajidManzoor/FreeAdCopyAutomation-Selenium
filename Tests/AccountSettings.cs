@@ -20,7 +20,6 @@ namespace FreeAdCopyAutomation.Tests
         private DashboardMethods _dashboardPage;
         private SettingsMethods _settingsPage;
         private Utilities _utilities;
-        private List<Dictionary<string, string>> _testData;
 
         [SetUp]
         public void Setup()
@@ -32,22 +31,21 @@ namespace FreeAdCopyAutomation.Tests
             _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _loginPage = new LoginMethods(_driver);
             _homePage = new HomePageMethods(_driver);
-            _dashboardPage=new DashboardMethods(_driver);
+            _dashboardPage = new DashboardMethods(_driver);
             _settingsPage = new SettingsMethods(_driver);
-            _utilities = new Utilities();
+            _utilities = new Utilities(_driver);
         }
 
         [TearDown]
         public void Teardown()
         {
-            _driver.Quit();
+            //_driver.Quit();
         }
 
         [Test]
         public void ChangeUsername()
         {
-            // Login to app and Click on the template from side bar
-            _homePage.NavigationToLogin();
+            _loginPage.ClickLoginNavbar();
             _loginPage.EnterEmail(Environment.ValidEmail);
             _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
@@ -59,14 +57,14 @@ namespace FreeAdCopyAutomation.Tests
         [Test]
         public void ChangePassword()
         {
-            _homePage.NavigationToLogin();
+            _loginPage.ClickLoginNavbar();
             _loginPage.EnterEmail(Environment.ValidEmail);
             _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
             _dashboardPage.ToastNotify(Environment.LoginSuccessToastMessage);
             _dashboardPage.ClickProfileIcon();
             _dashboardPage.SelectSettingsTab();
-            _settingsPage.UpdatePassword(Environment.ValidPassword,Environment.NewPassword,Environment.ConfirmNewPassword);
+            _settingsPage.UpdatePassword(Environment.ValidPassword, Environment.NewPassword, Environment.ConfirmNewPassword);
             _settingsPage.ClickUpdatePasswordButton();
             _dashboardPage.ToastNotify(Environment.PasswordMismatchToastMessage);
         }

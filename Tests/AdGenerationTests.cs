@@ -20,7 +20,6 @@ namespace FreeAdCopyAutomation.Tests
         private HomePageMethods _homePage;
         private DashboardMethods _dashboardPage;
         private AdsPageMethods _adsPage;
-        //private List<Dictionary<string, string>> _testData;
 
         [SetUp]
         public void Setup()
@@ -29,12 +28,11 @@ namespace FreeAdCopyAutomation.Tests
             options.AddArgument("--headless");
             _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl(Environment.BaseUrl); 
+            _driver.Navigate().GoToUrl(Environment.BaseUrl);
             _loginPage = new LoginMethods(_driver);
             _homePage = new HomePageMethods(_driver);
             _dashboardPage = new DashboardMethods(_driver);
             _adsPage = new AdsPageMethods(_driver);
-            //_testData = LoadTestData("DataFile.csv");
         }
 
         [TearDown]
@@ -47,9 +45,7 @@ namespace FreeAdCopyAutomation.Tests
         public void GenerateAdWithEmailTemplate()
         {
             _homePage.NavigationToLogin();
-            //_loginPage.EnterEmail("sajidfree7727@gmail.com");
             _loginPage.EnterEmail(Environment.ValidEmail);
-            //_loginPage.EnterPassword("webdir123R");
             _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
             _homePage.ClickTemplateOption();
@@ -58,8 +54,7 @@ namespace FreeAdCopyAutomation.Tests
             _dashboardPage.SelectEmailSequence();
             _dashboardPage.SelectEmailTemplate();
 
-            //_adsPage.FillAdsForm("Test", "Test", "Test", "Test");
-            _adsPage.FillAdsForm(Environment.TargetMarketText,Environment.PainPointText,Environment.DislikeText,Environment.UniqueSolText);
+            _adsPage.FillAdsForm(Environment.TargetMarketText, Environment.PainPointText, Environment.DislikeText, Environment.UniqueSolText);
 
             //_adsPage.ClickGenerateAdBtn();
             //_dashboardPage.ToastNotify("Generating Ads...");
@@ -76,7 +71,7 @@ namespace FreeAdCopyAutomation.Tests
             _dashboardPage.SelectMarketResCategory();
             _dashboardPage.SelectMarketResTemplate();
 
-            _adsPage.FillAdsFormMarketRes(Environment.TargetMarketText,Environment.UniqueSolText);
+            _adsPage.FillAdsFormMarketRes(Environment.TargetMarketText, Environment.UniqueSolText);
 
             //_adsPage.ClickGenerateAdBtn();
             //_dashboardPage.ToastNotify("Generating Ads...");
