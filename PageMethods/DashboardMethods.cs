@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using System.Threading;
 using FreeAdCopyAutomation.PageObjects;
 
-
 namespace FreeAdCopyAutomation.PageMethods
-
 {
     public class DashboardMethods
     {
@@ -19,7 +11,6 @@ namespace FreeAdCopyAutomation.PageMethods
         private readonly WebDriverWait _wait;
         private readonly DashBoardObjects _dashboardElement;
         private readonly LoginObjects _loginElements;
-
         private readonly Utilities _utils;
 
         public DashboardMethods(IWebDriver driver)
@@ -35,9 +26,7 @@ namespace FreeAdCopyAutomation.PageMethods
         public void SelectEmailCategory()
         {
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(_dashboardElement.EmailCategory));
-
             _utils.Click(_dashboardElement.EmailCategory);
-
             Assert.That(_driver.Url.Contains("/templates"), Is.True, "URL should include '/templates'");
         }
 

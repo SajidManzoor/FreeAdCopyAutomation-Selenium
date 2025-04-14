@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using FreeAdCopyAutomation.PageMethods;
-using FreeAdCopyAutomation.PageObjects;
 using Allure.NUnit;
 using Allure.NUnit.Attributes;
 

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System.Threading;
-using NUnit.Framework;
 using SeleniumExtras.WaitHelpers;
-using System.Collections.ObjectModel;
 using FreeAdCopyAutomation.PageObjects;
 using OpenQA.Selenium.Support.Extensions;
 
@@ -18,6 +10,7 @@ namespace FreeAdCopyAutomation.PageMethods
     class SettingsMethods
     {
         private readonly IWebDriver _driver;
+
         private readonly SettingsObjects _settingsElements;
         private readonly WebDriverWait _wait;
 

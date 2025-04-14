@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
 using FreeAdCopyAutomation.PageObjects;
-using SeleniumExtras.WaitHelpers;
 
 namespace FreeAdCopyAutomation.PageMethods
 {
@@ -78,7 +72,7 @@ namespace FreeAdCopyAutomation.PageMethods
                 { "pol", "Pomyślnie zalogowano" },
                 { "uk", "Успішний вхід" }
             };
-            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(".Toastify__toast-body > :nth-child(2)")));
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(_elements.Toast));
             Assert.That(_driver.FindElement(_elements.Toast).Text, Is.EqualTo(toastMessages[language]));
         }
     }
