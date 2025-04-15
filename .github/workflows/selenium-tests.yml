@@ -44,7 +44,7 @@ jobs:
               uses: simple-elf/allure-report-action@master
               if: always()
               with:
-                allure_results: ..\bin\Debug\net9.0\allure-results
+                allure_results: bin/Debug/net9.0/allure-results
                 allure_history: allure-history
 
             - name: Deploy report to GitHub Pages
@@ -52,7 +52,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@v3
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ..\bin\Debug\net9.0\allure-results
+                publish_dir: bin/Debug/net9.0/allure-results
                 publish_branch: gh-pages
 
             - name: Post a message in a channel
