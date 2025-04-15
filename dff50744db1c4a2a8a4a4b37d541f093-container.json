@@ -1,0 +1,12 @@
+{
+  "uuid": "163958ce-4fd5-4958-bbe4-77a47877689f",
+  "name": "FreeAdCopyAutomation.Tests.AdGenerationTests.GenerateAdWithEmailTemplate",
+  "children": [
+    "200f19e2-b1eb-496f-a89c-b3cf2e0756ce"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1744713948100,
+  "stop": 1744713956042
+}

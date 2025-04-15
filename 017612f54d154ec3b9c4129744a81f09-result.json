@@ -1,0 +1,46 @@
+{
+  "uuid": "3689cf65-fe66-4dbf-839b-606a5405ee8c",
+  "historyId": "3ef88583e236179e0607da4d9c4e9779",
+  "testCaseId": "b82e37cb248431ae0912d6ea52effc14",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.AccountSettings.ChangeUsername()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "ChangeUsername"
+    },
+    {
+      "name": "testClass",
+      "value": "AccountSettings"
+    }
+  ],
+  "links": [],
+  "name": "ChangeUsername",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Change Username",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713944087,
+  "stop": 1744713948095
+}

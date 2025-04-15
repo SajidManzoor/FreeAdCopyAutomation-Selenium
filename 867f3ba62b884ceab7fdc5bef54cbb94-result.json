@@ -1,0 +1,46 @@
+{
+  "uuid": "200f19e2-b1eb-496f-a89c-b3cf2e0756ce",
+  "historyId": "e2bdecbb8748c220ae360a040dd36da9",
+  "testCaseId": "d704e54785695a14590cd4ea6f81a77c",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.AdGenerationTests.GenerateAdWithEmailTemplate()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "GenerateAdWithEmailTemplate"
+    },
+    {
+      "name": "testClass",
+      "value": "AdGenerationTests"
+    }
+  ],
+  "links": [],
+  "name": "GenerateAdWithEmailTemplate",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Generate Ad with Email Template",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713948100,
+  "stop": 1744713956042
+}

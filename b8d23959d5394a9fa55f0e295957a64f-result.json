@@ -1,0 +1,46 @@
+{
+  "uuid": "10b295fb-c3be-4444-ab55-aa477f53dc0b",
+  "historyId": "7b0d31ef45d8e6e2916f819d48d053f9",
+  "testCaseId": "f0e1e17c0a4591e9a3bc51058794d1ab",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.BugReportTests.SubmitBugReportTest()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "SubmitBugReportTest"
+    },
+    {
+      "name": "testClass",
+      "value": "BugReportTests"
+    }
+  ],
+  "links": [],
+  "name": "SubmitBugReportTest",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Submit Bug Report",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713962646,
+  "stop": 1744713966318
+}

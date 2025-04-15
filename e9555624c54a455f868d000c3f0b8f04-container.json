@@ -1,0 +1,12 @@
+{
+  "uuid": "511d670d-cf07-4d92-99f2-c473edccb411",
+  "name": "FreeAdCopyAutomation.Tests.AccountSettings.ChangeUsername",
+  "children": [
+    "3689cf65-fe66-4dbf-839b-606a5405ee8c"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1744713944087,
+  "stop": 1744713948097
+}

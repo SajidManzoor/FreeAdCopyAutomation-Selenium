@@ -1,0 +1,46 @@
+{
+  "uuid": "34cd4041-7826-4c0a-bb77-88dd06275a76",
+  "historyId": "ebfc652af2001f9546fdaa3d6372a7e9",
+  "testCaseId": "64a5752c544e8ee261bdbc03ea337ff5",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.AccountSettings.ChangePassword()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "ChangePassword"
+    },
+    {
+      "name": "testClass",
+      "value": "AccountSettings"
+    }
+  ],
+  "links": [],
+  "name": "ChangePassword",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Change Password",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713932801,
+  "stop": 1744713944069
+}

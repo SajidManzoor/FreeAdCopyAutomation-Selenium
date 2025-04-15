@@ -1,0 +1,12 @@
+{
+  "uuid": "c44f6aa0-a626-4353-93d2-03be0dac1b97",
+  "name": "FreeAdCopyAutomation.Tests.AccountSettings.ChangePassword",
+  "children": [
+    "34cd4041-7826-4c0a-bb77-88dd06275a76"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1744713932800,
+  "stop": 1744713944082
+}

@@ -1,0 +1,12 @@
+{
+  "uuid": "912cc2c9-a083-4c52-9e3e-d2c98454a213",
+  "name": "FreeAdCopyAutomation.Tests.AdGenerationTests.GenerateAdWithMarketResearchTemplate",
+  "children": [
+    "00d2f1dc-140b-4a9f-b046-88d8d911db27"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1744713956042,
+  "stop": 1744713962645
+}

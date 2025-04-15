@@ -1,0 +1,46 @@
+{
+  "uuid": "ead8d9a5-be05-44d3-9c44-bbb6d58c529b",
+  "historyId": "897809b9f6ca074c36cb113d8f8ba651",
+  "testCaseId": "a4ac2158e62a4b5bd7a20952c210fca2",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.Login.InvalidLoginTest()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "InvalidLoginTest"
+    },
+    {
+      "name": "testClass",
+      "value": "Login"
+    }
+  ],
+  "links": [],
+  "name": "InvalidLoginTest",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Invalid Login",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713966319,
+  "stop": 1744713969109
+}

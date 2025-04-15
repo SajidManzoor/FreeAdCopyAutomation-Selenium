@@ -1,0 +1,13 @@
+{
+  "uuid": "562f0f30-52e5-4d06-ac29-baab853012e5",
+  "name": "FreeAdCopyAutomation.Tests.Login",
+  "children": [
+    "ead8d9a5-be05-44d3-9c44-bbb6d58c529b",
+    "6da3ade8-0da3-4d52-bdca-295a22ff0179"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1744713966318,
+  "stop": 1744713972336
+}

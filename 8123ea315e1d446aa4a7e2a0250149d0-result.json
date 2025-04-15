@@ -1,0 +1,46 @@
+{
+  "uuid": "00d2f1dc-140b-4a9f-b046-88d8d911db27",
+  "historyId": "15adb8f2b312f4669ff608256eb9d533",
+  "testCaseId": "176bec4bdacc239fee456066144b6556",
+  "fullName": "FreeAdCopyAutomation:FreeAdCopyAutomation.Tests.AdGenerationTests.GenerateAdWithMarketResearchTemplate()",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NUnit.Fw.NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az2211-913"
+    },
+    {
+      "name": "language",
+      "value": "C#"
+    },
+    {
+      "name": "framework",
+      "value": "NUnit 3"
+    },
+    {
+      "name": "package",
+      "value": "FreeAdCopyAutomation.Tests"
+    },
+    {
+      "name": "testMethod",
+      "value": "GenerateAdWithMarketResearchTemplate"
+    },
+    {
+      "name": "testClass",
+      "value": "AdGenerationTests"
+    }
+  ],
+  "links": [],
+  "name": "GenerateAdWithMarketResearchTemplate",
+  "status": "passed",
+  "stage": "finished",
+  "description": "Generate Ad with Market Research Template",
+  "steps": [],
+  "attachments": [],
+  "parameters": [],
+  "start": 1744713956042,
+  "stop": 1744713962645
+}
