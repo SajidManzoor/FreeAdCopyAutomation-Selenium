@@ -1,9 +1,12 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.Extensions;
 using FreeAdCopyAutomation.PageMethods;
 using Allure.NUnit;
 using Allure.NUnit.Attributes;
+using Allure.Net.Commons;
+
 
 namespace FreeAdCopyAutomation.Tests
 {
@@ -28,14 +31,18 @@ namespace FreeAdCopyAutomation.Tests
         [TearDown]
         public void Teardown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            {
+                var screenshot = _driver.TakeScreenshot();
+                var screenshotPath = $"{TestContext.CurrentContext.Test.Name}.png";
+                screenshot.SaveAsFile(screenshotPath);
+                AllureApi.AddAttachment("Screenshot on Failure", "image/png", screenshotPath);
+            }
             _driver.Quit();
         }
 
         [Test]
         [AllureDescription("Login")]
-        [AllureIssue("Issue-1")]
-        [AllureTms("TMS-1")]
-
         public void ValidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
@@ -49,8 +56,6 @@ namespace FreeAdCopyAutomation.Tests
 
         [Test]
         [AllureDescription("Invalid Login")]
-        [AllureIssue("Issue-2")]
-        [AllureTms("TMS-2")]
         public void InvalidLoginTest()
         {
             _loginPage.ClickLoginNavbar();

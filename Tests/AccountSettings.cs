@@ -2,7 +2,10 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using Allure.NUnit;
+using Allure.NUnit.Attributes;
+using Allure.Net.Commons;
 
 namespace FreeAdCopyAutomation.Tests
 {
@@ -34,9 +37,17 @@ namespace FreeAdCopyAutomation.Tests
         [TearDown]
         public void Teardown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            {
+                var screenshot = _driver.TakeScreenshot();
+                var screenshotPath = $"{TestContext.CurrentContext.Test.Name}.png";
+                screenshot.SaveAsFile(screenshotPath);
+                AllureApi.AddAttachment("Screenshot on Failure", "image/png", screenshotPath);
+            }
             _driver.Quit();
         }
 
+        [AllureDescription("Change Username")]
         [Test]
         public void ChangeUsername()
         {
@@ -49,6 +60,7 @@ namespace FreeAdCopyAutomation.Tests
             string username = _utilities.GenerateRandomString(10);
             _settingsPage.UpdateUsername(username);
         }
+        [AllureDescription("Change Password")]
         [Test]
         public void ChangePassword()
         {

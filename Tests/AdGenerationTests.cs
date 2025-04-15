@@ -1,8 +1,12 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.Extensions;
 using FreeAdCopyAutomation.PageMethods;
 using Allure.NUnit;
+using Allure.NUnit.Attributes;
+using Allure.Net.Commons;
+
 
 namespace FreeAdCopyAutomation.Tests
 {
@@ -32,9 +36,17 @@ namespace FreeAdCopyAutomation.Tests
         [TearDown]
         public void Teardown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            {
+                var screenshot = _driver.TakeScreenshot();
+                var screenshotPath = $"{TestContext.CurrentContext.Test.Name}.png";
+                screenshot.SaveAsFile(screenshotPath);
+                AllureApi.AddAttachment("Screenshot on Failure", "image/png", screenshotPath);
+            
+            }
             _driver.Quit();
         }
-
+        [AllureDescription("Generate Ad with Email Template")]
         [Test]
         public void GenerateAdWithEmailTemplate()
         {
@@ -53,6 +65,7 @@ namespace FreeAdCopyAutomation.Tests
             //_adsPage.ClickGenerateAdBtn();
             //_dashboardPage.ToastNotify("Generating Ads...");
         }
+        [AllureDescription("Generate Ad with Market Research Template")]
         [Test]
         public void GenerateAdWithMarketResearchTemplate()
         {
