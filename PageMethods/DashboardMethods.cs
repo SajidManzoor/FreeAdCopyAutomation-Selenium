@@ -56,6 +56,7 @@ namespace FreeAdCopyAutomation.PageMethods
 
         public void SelectMarketResTemplate()
         {
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(_dashboardElement.MarketTemplate));
             _utils.Click(_dashboardElement.MarketTemplate);
         }
 

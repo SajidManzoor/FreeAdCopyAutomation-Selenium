@@ -22,6 +22,7 @@ namespace FreeAdCopyAutomation.PageMethods
         }
         public void ClickLoginNavbar()
         {
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(_elements.Login_Navbar));
             _utils.Click(_elements.Login_Navbar);
         }
 
