@@ -34,7 +34,7 @@ namespace FreeAdCopyAutomation.Tests
         [TearDown]
         public void Teardown()
         {
-            //_driver.Quit();
+            _driver.Quit();
         }
 
         [Test]

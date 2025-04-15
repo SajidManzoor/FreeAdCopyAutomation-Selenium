@@ -25,7 +25,7 @@ namespace FreeAdCopyAutomation.PageMethods
             _settingsElements = new SettingsObjects(driver);
             _loginElements = new LoginObjects(driver);
             _dashboardElements = new DashBoardObjects(driver);
-            _utils = new Utilities(driver); 
+            _utils = new Utilities(driver);
         }
 
         public void UpdateUsername(string username)

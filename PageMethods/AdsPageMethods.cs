@@ -1,6 +1,6 @@
 ﻿using FreeAdCopyAutomation;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI; 
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
 public class AdsPageMethods
@@ -28,7 +28,7 @@ public class AdsPageMethods
 
     public void FillAdsFormMarketRes(string targetMarket, string uniqueSol)
     {
-        _wait.Until(ExpectedConditions.ElementIsVisible(adsElements.TargetMarketField)); 
+        _wait.Until(ExpectedConditions.ElementIsVisible(adsElements.TargetMarketField));
         _utils.EnterText(adsElements.TargetMarketField, targetMarket);
         _utils.EnterText(adsElements.UniqueSolField, uniqueSol);
     }
