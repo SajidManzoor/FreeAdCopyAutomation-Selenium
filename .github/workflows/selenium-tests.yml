@@ -54,7 +54,7 @@ jobs:
               uses: peaceiris/actions-gh-pages@main
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: bin/Debug/net9.0/allure-results
+                publish_dir: allure-results
                 publish_branch: gh-pages
 
             - name: Slack Notification
