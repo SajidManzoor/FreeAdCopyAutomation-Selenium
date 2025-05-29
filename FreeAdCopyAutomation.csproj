@@ -6,13 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	<MonoMod_CheckTargetRuntime>false</MonoMod_CheckTargetRuntime>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Allure.NUnit" Version="2.12.1" />
+    <PackageReference Include="BrowserStack.TestAdapter" Version="0.13.29" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="NUnit" Version="4.3.2" />
-    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.1.0-alpha.1" />
     <PackageReference Include="Selenium.Support" Version="4.31.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.31.0" />
     <PackageReference Include="WebDriverManager" Version="2.17.5" />

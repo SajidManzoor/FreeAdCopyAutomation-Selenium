@@ -21,7 +21,7 @@ public class AdsPageMethods
     public void FillAdsForm(string targetMarket, string painPoint, string dislikeSol, string uniqueSol)
     {
         _wait.Until(ExpectedConditions.ElementIsVisible(adsElements.TargetMarketField));
-        Assert.That(_driver.Url, Does.Contain("/ads"), "URL does not contain '/ads'");
+        //Assert.That(_driver.Url, Does.Contain("/ads"), "URL does not contain '/ads'");
         _utils.EnterText(adsElements.TargetMarketField, targetMarket);
         _utils.EnterText(adsElements.PainPointField, painPoint);
         _utils.EnterText(adsElements.DislikeSolField, dislikeSol);

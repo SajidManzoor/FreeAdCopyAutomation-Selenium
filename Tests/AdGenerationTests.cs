@@ -23,7 +23,7 @@ namespace FreeAdCopyAutomation.Tests
         public void Setup()
         {
             var options = new ChromeOptions();
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
             _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(Environment.BaseUrl);

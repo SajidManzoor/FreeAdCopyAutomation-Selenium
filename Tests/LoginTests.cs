@@ -3,22 +3,19 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
 using FreeAdCopyAutomation.PageMethods;
-using FreeAdCopyAutomation.PageObjects;
 using Allure.NUnit;
-using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
+using Allure.Net.Commons;
+
 
 namespace FreeAdCopyAutomation.Tests
 {
-    [AllureNUnit]
     [TestFixture]
-    public class BugReportTests
+    [AllureNUnit]
+    public class LoginTests
     {
         private IWebDriver _driver;
-        private HomePageMethods _homePage;
         private LoginMethods _loginPage;
-        private DashBoardObjects _dashboard;
-        private DashboardMethods _dashboardMethods;
 
         [SetUp]
         public void Setup()
@@ -28,10 +25,7 @@ namespace FreeAdCopyAutomation.Tests
             _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(Environment.BaseUrl);
-            _homePage = new HomePageMethods(_driver);
             _loginPage = new LoginMethods(_driver);
-            _dashboard = new DashBoardObjects(_driver);
-            _dashboardMethods = new DashboardMethods(_driver);
         }
 
         [TearDown]
@@ -43,25 +37,30 @@ namespace FreeAdCopyAutomation.Tests
                 var screenshotPath = $"{TestContext.CurrentContext.Test.Name}.png";
                 screenshot.SaveAsFile(screenshotPath);
                 AllureApi.AddAttachment("Screenshot on Failure", "image/png", screenshotPath);
-            
             }
             _driver.Quit();
         }
-        [AllureDescription("Submit Bug Report")]
+
         [Test]
-        public void SubmitBugReportTest()
+        [AllureDescription("Login")]
+        public void ValidLoginTest()
         {
-            _homePage.NavigationToLogin();
+            _loginPage.ClickLoginNavbar();
             _loginPage.EnterEmail(Environment.ValidEmail);
             _loginPage.EnterPassword(Environment.ValidPassword);
             _loginPage.SigninBtn();
-
-            _dashboardMethods.ClickProfileIcon();
-            _dashboardMethods.SelectReportBugTab();
-
-            _dashboardMethods.SubmitBugReport(Environment.BugDetail);
-
+            _loginPage.ToastNotification(Environment.LoginSuccessToastMessage);
+            _loginPage.LoginValidation();
+            _loginPage.VerifyLoginToast();
         }
 
+        [Test]
+        [AllureDescription("Invalid Login")]
+        public void InvalidLoginTest()
+        {
+            _loginPage.ClickLoginNavbar();
+            _loginPage.SigninBtn();
+            _loginPage.ToastNotification(Environment.AuthenticationErrorMessage);
+        }
     }
 }
