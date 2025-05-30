@@ -20,7 +20,7 @@ namespace FreeAdCopyAutomation.PageObjects
         public By PasswordField => By.Id("password");
         public By NewPasswordField => By.Id("newPassword");
         public By ConfirmPasswordField => By.Id("confirmpassword");
-        public By UpdatePasswordButton => By.XPath("//span[.='Update Password']");
+        public By UpdatePasswordButton => By.XPath("//span[.='Updates Password']");
         public By LanguageDropdown => By.CssSelector(".inline-block #menu-button");
         public By AccountSettingsText => By.CssSelector(".space-y-6 > .text-xl");
         public ReadOnlyCollection<IWebElement> TabList => _driver.FindElements(By.CssSelector(".pb-1 p"));

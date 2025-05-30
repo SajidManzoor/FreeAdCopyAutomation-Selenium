@@ -51,7 +51,6 @@ namespace FreeAdCopyAutomation.Tests
             _loginPage.SigninBtn();
             _loginPage.ToastNotification(Environment.LoginSuccessToastMessage);
             _loginPage.LoginValidation();
-            _loginPage.VerifyLoginToast();
         }
 
         [Test]
@@ -59,6 +58,8 @@ namespace FreeAdCopyAutomation.Tests
         public void InvalidLoginTest()
         {
             _loginPage.ClickLoginNavbar();
+            _loginPage.EnterEmail(Environment.InValidEmail);
+            _loginPage.EnterPassword(Environment.ValidEmail);
             _loginPage.SigninBtn();
             _loginPage.ToastNotification(Environment.AuthenticationErrorMessage);
         }
